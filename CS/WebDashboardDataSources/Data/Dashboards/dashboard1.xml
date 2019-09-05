@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <Title Text="Sample Dashboard" />
+  <DataSources>
+    <SqlDataSource Name="SQL Data Source" ComponentName="sqlDataSource1" DataProcessingMode="Client">
+      <Connection Name="NWindConnectionString" FromAppConfig="true" />
+      <Query Type="SelectQuery" Name="Products_Categories">
+        <Tables>
+          <Table Name="Categories" />
+          <Table Name="Products" />
+          <Relation Type="Inner" Parent="Categories" Nested="Products">
+            <KeyColumn Parent="CategoryID" Nested="CategoryID" />
+          </Relation>
+        </Tables>
+        <Columns>
+          <AllColumns />
+        </Columns>
+      </Query>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+    <ObjectDataSource Name="Object Data Source" ComponentName="objectDataSource1" />
+    <ExcelDataSource Name="Excel Data Source" FileName="F:\projects\WebDashboardDataSources\WebDashboardDataSources\Data\Sales.xlsx" ComponentName="excelDataSource1">
+      <Options Type="DevExpress.DataAccess.Excel.ExcelSourceOptions" SkipEmptyRows="true" UseFirstRowAsHeader="true" SkipHiddenColumns="true" SkipHiddenRows="true">
+        <ImportSettings Type="DevExpress.DataAccess.Excel.ExcelWorksheetSettings" WorksheetName="Sheet1" />
+      </Options>
+      <Schema />
+      <ResultSchema />
+    </ExcelDataSource>
+    <OLAPDataSource ComponentName="oLAPDataSource1" Name="OLAP Data Source" ConnectionName="olapConnection" />
+    <ExtractFileDataSource ComponentName="extractFileDataSource1" Name="Extract Data Source">
+      <FileName>F:\projects\WebDashboardDataSources\WebDashboardDataSources\Data\SalesPersonExtract.dat</FileName>
+      <Parameters />
+    </ExtractFileDataSource>
+    <JsonDataSource Name="JSON Data Source (URL)" RootElement="Customers" ComponentName="jsonDataSource1">
+      <Source SourceType="DevExpress.DataAccess.Json.UriJsonSource" Uri="https://raw.githubusercontent.com/DevExpress-Examples/DataSources/master/JSON/customers.json" />
+      <Schema>
+        <Node Name="root" Type="System.Object" Selected="true" NodeType="Object">
+          <Node Name="Customers" Selected="true" NodeType="Array">
+            <Node Name="Address" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="City" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="CompanyName" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="ContactName" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="ContactTitle" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="Country" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="Fax" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="Id" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="Phone" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="PostalCode" Type="System.String" Selected="true" NodeType="Property" />
+          </Node>
+        </Node>
+      </Schema>
+    </JsonDataSource>
+    <JsonDataSource Name="JSON Data Source (File)" RootElement="Customers" ComponentName="jsonDataSource2">
+      <Source SourceType="DevExpress.DataAccess.Json.UriJsonSource" Uri="file:///F:/projects/WebDashboardDataSources/WebDashboardDataSources/Data/customers.json" />
+      <Schema>
+        <Node Name="root" Type="System.Object" Selected="true" NodeType="Object">
+          <Node Name="Customers" Selected="true" NodeType="Array">
+            <Node Name="Address" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="City" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="CompanyName" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="ContactName" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="ContactTitle" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="Country" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="Fax" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="Id" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="Phone" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="PostalCode" Type="System.String" Selected="true" NodeType="Property" />
+          </Node>
+          <Node Name="ResponseStatus" Type="System.Object" Selected="true" NodeType="Object" />
+        </Node>
+      </Schema>
+    </JsonDataSource>
+    <JsonDataSource Name="JSON Data Source (String)" RootElement="Customers" ComponentName="jsonDataSource3">
+      <Source SourceType="DevExpress.DataAccess.Json.CustomJsonSource" Json="{&quot;Customers&quot;:[{&quot;Id&quot;:&quot;ALFKI&quot;,&quot;CompanyName&quot;:&quot;Alfreds Futterkiste&quot;,&quot;ContactName&quot;:&quot;Maria Anders&quot;,&quot;ContactTitle&quot;:&quot;Sales Representative&quot;,&quot;Address&quot;:&quot;Obere Str. 57&quot;,&quot;City&quot;:&quot;Berlin&quot;,&quot;PostalCode&quot;:&quot;12209&quot;,&quot;Country&quot;:&quot;Germany&quot;,&quot;Phone&quot;:&quot;030-0074321&quot;,&quot;Fax&quot;:&quot;030-0076545&quot;}],&quot;ResponseStatus&quot;:{}}" />
+      <Schema>
+        <Node Name="root" Type="System.Object" Selected="true" NodeType="Object">
+          <Node Name="Customers" Selected="true" NodeType="Array">
+            <Node Name="Address" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="City" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="CompanyName" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="ContactName" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="ContactTitle" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="Country" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="Fax" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="Id" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="Phone" Type="System.String" Selected="true" NodeType="Property" />
+            <Node Name="PostalCode" Type="System.String" Selected="true" NodeType="Property" />
+          </Node>
+          <Node Name="ResponseStatus" Type="System.Object" Selected="true" NodeType="Object" />
+        </Node>
+      </Schema>
+    </JsonDataSource>
+    <XPObjectSource ComponentName="xPObjectSource1">
+      <Name>XPO Data Source</Name>
+      <ConnectionStringName>NWindConnectionString</ConnectionStringName>
+      <EntityType>WebDashboardDataSources.Category,WebDashboardDataSources</EntityType>
+      <TopRecords>0</TopRecords>
+      <SkipRecords>0</SkipRecords>
+      <Parameters />
+      <Sorting />
+      <Properties />
+    </XPObjectSource>
+  </DataSources>
+  <Items>
+    <Card ComponentName="cardDashboardItem1" Name="Cards 1" DataSource="excelDataSource1">
+      <DataItems>
+        <Dimension DataMember="Product" DefaultId="DataItem0" />
+        <Measure DataMember="RevenueYTD (Sum)" DefaultId="DataItem1" />
+        <Measure DataMember="RevenueYTDTarget (Sum)" DefaultId="DataItem2" />
+        <Measure DataMember="UnitsSoldYTD (Sum)" DefaultId="DataItem3" />
+        <Measure DataMember="UnitsSoldYTDTarget (Sum)" DefaultId="DataItem4" />
+        <Dimension DataMember="Category" DefaultId="DataItem5" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem5" />
+        <SeriesDimension DefaultId="DataItem0" />
+      </SeriesDimensions>
+      <Card>
+        <ActualValue DefaultId="DataItem1" />
+        <TargetValue DefaultId="DataItem2" />
+        <AbsoluteVariationNumericFormat />
+        <PercentVariationNumericFormat />
+        <PercentOfTargetNumericFormat />
+        <LayoutTemplate Type="Stretched">
+          <TopValue Visible="true" ValueType="ActualValue" DimensionIndex="0" />
+          <MainValue Visible="true" ValueType="Title" DimensionIndex="0" />
+          <SubValue Visible="true" ValueType="Subtitle" DimensionIndex="0" />
+          <BottomValue1 Visible="true" ValueType="PercentVariation" DimensionIndex="0" />
+          <BottomValue2 Visible="true" ValueType="AbsoluteVariation" DimensionIndex="0" />
+          <DeltaIndicator Visible="true" />
+          <Sparkline Visible="true" />
+        </LayoutTemplate>
+      </Card>
+      <Card>
+        <ActualValue DefaultId="DataItem3" />
+        <TargetValue DefaultId="DataItem4" />
+        <AbsoluteVariationNumericFormat />
+        <PercentVariationNumericFormat />
+        <PercentOfTargetNumericFormat />
+        <LayoutTemplate Type="Stretched">
+          <TopValue Visible="true" ValueType="ActualValue" DimensionIndex="0" />
+          <MainValue Visible="true" ValueType="Title" DimensionIndex="0" />
+          <SubValue Visible="true" ValueType="Subtitle" DimensionIndex="0" />
+          <BottomValue1 Visible="true" ValueType="PercentVariation" DimensionIndex="0" />
+          <BottomValue2 Visible="true" ValueType="AbsoluteVariation" DimensionIndex="0" />
+          <DeltaIndicator Visible="true" />
+          <Sparkline Visible="true" />
+        </LayoutTemplate>
+      </Card>
+    </Card>
+    <TreeView ComponentName="treeViewDashboardItem1" Name="Tree View 1" DataSource="excelDataSource1">
+      <DataItems>
+        <Dimension DataMember="Category" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </TreeView>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Weight="100">
+      <LayoutItem DashboardItem="treeViewDashboardItem1" Weight="17.437670004389421" />
+      <LayoutItem DashboardItem="cardDashboardItem1" Weight="100.31558474435263" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>
