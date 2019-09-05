@@ -17,4 +17,4 @@ Supported data sources:
 - [JSON data source](http://docs.devexpress.com/Dashboard/401224/)
 - [XPO data source](http://docs.devexpress.com/Dashboard/401226/)
 
-The [DashboardConfigurator.SetDataSourceStorage](http://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.SetDataSourceStorage.overloads) method is used to register the added data source in a data source storage. 
+The [DashboardConfigurator.SetDataSourceStorage](http://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.SetDataSourceStorage.overloads) method is used to register the added data sources in a data source storage. 
