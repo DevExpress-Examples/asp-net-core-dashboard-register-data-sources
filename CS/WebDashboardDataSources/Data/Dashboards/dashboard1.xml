@@ -18,7 +18,7 @@
       </Query>
       <ConnectionOptions CloseConnection="true" />
     </SqlDataSource>
-    <ObjectDataSource Name="Object Data Source" ComponentName="objectDataSource1" />
+    <OLAPDataSource ComponentName="oLAPDataSource1" Name="OLAP Data Source" ConnectionName="olapConnection" />
     <ExcelDataSource Name="Excel Data Source" FileName="F:\projects\WebDashboardDataSources\WebDashboardDataSources\Data\Sales.xlsx" ComponentName="excelDataSource1">
       <Options Type="DevExpress.DataAccess.Excel.ExcelSourceOptions" SkipEmptyRows="true" UseFirstRowAsHeader="true" SkipHiddenColumns="true" SkipHiddenRows="true">
         <ImportSettings Type="DevExpress.DataAccess.Excel.ExcelWorksheetSettings" WorksheetName="Sheet1" />
@@ -26,7 +26,8 @@
       <Schema />
       <ResultSchema />
     </ExcelDataSource>
-    <OLAPDataSource ComponentName="oLAPDataSource1" Name="OLAP Data Source" ConnectionName="olapConnection" />
+    <ObjectDataSource Name="Object Data Source" ComponentName="objectDataSource1" />
+    <EFDataSource Name="EF Core Data Source" Source="WebDashboardDataSources.OrdersContext, WebDashboardDataSources, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" ComponentName="eFDataSource1" />
     <ExtractFileDataSource ComponentName="extractFileDataSource1" Name="Extract Data Source">
       <FileName>F:\projects\WebDashboardDataSources\WebDashboardDataSources\Data\SalesPersonExtract.dat</FileName>
       <Parameters />
@@ -99,7 +100,7 @@
       <Parameters />
       <Sorting />
       <Properties />
-    </XPObjectSource>
+    </XPObjectSource>    
   </DataSources>
   <Items>
     <Card ComponentName="cardDashboardItem1" Name="Cards 1" DataSource="excelDataSource1">
