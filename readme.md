@@ -2,7 +2,7 @@
 
 * [Startup.cs](./CS/WebDashboardDataSources/Startup.cs)
 
-## How to Register Data Sources for ASP.NET Core Dashboard
+## How to Register Data Sources for ASP.NET Core Dashboard Control
 
 The following example displays how to provide a Web Dashboard with a set of predefined data sources available for end users.
 
