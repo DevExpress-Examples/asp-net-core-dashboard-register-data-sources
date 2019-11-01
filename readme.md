@@ -10,13 +10,13 @@ The following example displays how to provide a Web Dashboard with a set of pred
 
 Supported data sources:
 
-- [SQL data source](http://docs.devexpress.com/Dashboard/116652/)
-- [OLAP data source (XMLA only)](http://docs.devexpress.com/Dashboard/400562/)
-- [Excel data source](http://docs.devexpress.com/Dashboard/116654/)
-- [Object data source](http://docs.devexpress.com/Dashboard/116655/)
-- [Entity Framework data source](http://docs.devexpress.com/Dashboard/116656/)
-- [Extract data source](http://docs.devexpress.com/Dashboard/116657/)
-- [JSON data source](http://docs.devexpress.com/Dashboard/401224/)
-- [XPO data source](http://docs.devexpress.com/Dashboard/401226/)
+- [SQL data source](https://docs.devexpress.com/Dashboard/116652/)
+- [OLAP data source (XMLA only)](https://docs.devexpress.com/Dashboard/400562/)
+- [Excel data source](https://docs.devexpress.com/Dashboard/116654/)
+- [Object data source](https://docs.devexpress.com/Dashboard/116655/)
+- [Entity Framework data source](https://docs.devexpress.com/Dashboard/116656/)
+- [Extract data source](https://docs.devexpress.com/Dashboard/116657/)
+- [JSON data source](https://docs.devexpress.com/Dashboard/401224/)
+- [XPO data source](https://docs.devexpress.com/Dashboard/401226/)
 
-The [DashboardConfigurator.SetDataSourceStorage](http://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.SetDataSourceStorage.overloads) method is used to register the added data sources in a data source storage. 
+The [DashboardConfigurator.SetDataSourceStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.SetDataSourceStorage.overloads) method is used to register the added data sources in a data source storage. 
