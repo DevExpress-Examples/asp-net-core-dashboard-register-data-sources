@@ -20,3 +20,10 @@ Supported data sources:
 - [XPO data source](https://docs.devexpress.com/Dashboard/401226/)
 
 The [DashboardConfigurator.SetDataSourceStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.SetDataSourceStorage.overloads) method is used to register the added data sources in a data source storage. 
+
+
+
+## See Also
+
+- [How to Register Data Sources for ASP.NET Web Forms Dashboard Control](https://github.com/DevExpress-Examples/asp-net-web-forms-dashboard-register-data-sources)
+- [How to Register Data Sources for ASP.NET MVC Forms Dashboard Control](https://github.com/DevExpress-Examples/asp-net-mvc-dashboard-register-data-sources)
