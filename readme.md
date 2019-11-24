@@ -26,4 +26,4 @@ The [DashboardConfigurator.SetDataSourceStorage](https://docs.devexpress.com/Das
 ## See Also
 
 - [How to Register Data Sources for ASP.NET Web Forms Dashboard Control](https://github.com/DevExpress-Examples/asp-net-web-forms-dashboard-register-data-sources)
-- [How to Register Data Sources for ASP.NET MVC Forms Dashboard Control](https://github.com/DevExpress-Examples/asp-net-mvc-dashboard-register-data-sources)
+- [How to Register Data Sources for ASP.NET MVC Dashboard Extension](https://github.com/DevExpress-Examples/asp-net-mvc-dashboard-register-data-sources)
