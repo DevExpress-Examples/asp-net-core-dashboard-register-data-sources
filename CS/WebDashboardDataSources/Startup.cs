@@ -20,6 +20,7 @@ namespace WebDashboardDataSources {
             Configuration = configuration;
             FileProvider = hostingEnvironment.ContentRootFileProvider;
             DashboardExportSettings.CompatibilityMode = DashboardExportCompatibilityMode.Restricted;
+            DashboardOlapDataSource.OlapDataProvider = OlapDataProviderType.Xmla;
         }
 
         public IFileProvider FileProvider { get; }
@@ -64,7 +65,6 @@ namespace WebDashboardDataSources {
 
             // Registers an OLAP data source.
             DashboardOlapDataSource olapDataSource = new DashboardOlapDataSource("OLAP Data Source", "olapConnection");
-            DashboardOlapDataSource.OlapDataProvider = OlapDataProviderType.Xmla;
             dataSourceStorage.RegisterDataSource("olapDataSource", olapDataSource.SaveToXml());
 
             // Registers an Excel data source.
