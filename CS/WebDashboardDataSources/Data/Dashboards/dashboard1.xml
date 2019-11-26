@@ -19,7 +19,7 @@
       <ConnectionOptions CloseConnection="true" />
     </SqlDataSource>
     <OLAPDataSource ComponentName="oLAPDataSource1" Name="OLAP Data Source" ConnectionName="olapConnection" />
-    <ExcelDataSource Name="Excel Data Source" FileName="F:\projects\WebDashboardDataSources\WebDashboardDataSources\Data\Sales.xlsx" ComponentName="excelDataSource1">
+    <ExcelDataSource Name="Excel Data Source" ComponentName="excelDataSource1">
       <Options Type="DevExpress.DataAccess.Excel.ExcelSourceOptions" SkipEmptyRows="true" UseFirstRowAsHeader="true" SkipHiddenColumns="true" SkipHiddenRows="true">
         <ImportSettings Type="DevExpress.DataAccess.Excel.ExcelWorksheetSettings" WorksheetName="Sheet1" />
       </Options>
@@ -29,7 +29,6 @@
     <ObjectDataSource Name="Object Data Source" ComponentName="objectDataSource1" />
     <EFDataSource Name="EF Core Data Source" Source="WebDashboardDataSources.OrdersContext, WebDashboardDataSources, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" ComponentName="eFDataSource1" />
     <ExtractFileDataSource ComponentName="extractFileDataSource1" Name="Extract Data Source">
-      <FileName>F:\projects\WebDashboardDataSources\WebDashboardDataSources\Data\SalesPersonExtract.dat</FileName>
       <Parameters />
     </ExtractFileDataSource>
     <JsonDataSource Name="JSON Data Source (URL)" RootElement="Customers" ComponentName="jsonDataSource1">
@@ -51,26 +50,7 @@
         </Node>
       </Schema>
     </JsonDataSource>
-    <JsonDataSource Name="JSON Data Source (File)" RootElement="Customers" ComponentName="jsonDataSource2">
-      <Source SourceType="DevExpress.DataAccess.Json.UriJsonSource" Uri="file:///F:/projects/WebDashboardDataSources/WebDashboardDataSources/Data/customers.json" />
-      <Schema>
-        <Node Name="root" Type="System.Object" Selected="true" NodeType="Object">
-          <Node Name="Customers" Selected="true" NodeType="Array">
-            <Node Name="Address" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="City" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="CompanyName" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="ContactName" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="ContactTitle" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="Country" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="Fax" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="Id" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="Phone" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="PostalCode" Type="System.String" Selected="true" NodeType="Property" />
-          </Node>
-          <Node Name="ResponseStatus" Type="System.Object" Selected="true" NodeType="Object" />
-        </Node>
-      </Schema>
-    </JsonDataSource>
+    <JsonDataSource Name="JSON Data Source (File)" RootElement="Customers" ComponentName="jsonDataSource2" />
     <JsonDataSource Name="JSON Data Source (String)" RootElement="Customers" ComponentName="jsonDataSource3">
       <Source SourceType="DevExpress.DataAccess.Json.CustomJsonSource" Json="{&quot;Customers&quot;:[{&quot;Id&quot;:&quot;ALFKI&quot;,&quot;CompanyName&quot;:&quot;Alfreds Futterkiste&quot;,&quot;ContactName&quot;:&quot;Maria Anders&quot;,&quot;ContactTitle&quot;:&quot;Sales Representative&quot;,&quot;Address&quot;:&quot;Obere Str. 57&quot;,&quot;City&quot;:&quot;Berlin&quot;,&quot;PostalCode&quot;:&quot;12209&quot;,&quot;Country&quot;:&quot;Germany&quot;,&quot;Phone&quot;:&quot;030-0074321&quot;,&quot;Fax&quot;:&quot;030-0076545&quot;}],&quot;ResponseStatus&quot;:{}}" />
       <Schema>
@@ -100,7 +80,7 @@
       <Parameters />
       <Sorting />
       <Properties />
-    </XPObjectSource>    
+    </XPObjectSource>
   </DataSources>
   <Items>
     <Card ComponentName="cardDashboardItem1" Name="Cards 1" DataSource="excelDataSource1">
