@@ -50,7 +50,7 @@
         </Node>
       </Schema>
     </JsonDataSource>
-    <JsonDataSource Name="JSON Data Source (File)" RootElement="Customers" ComponentName="jsonDataSource2" />
+    <JsonDataSource Name="JSON Data Source (File)" ConnectionName="jsonConnection" RootElement="Customers" ComponentName="jsonDataSource2" />
     <JsonDataSource Name="JSON Data Source (String)" RootElement="Customers" ComponentName="jsonDataSource3">
       <Source SourceType="DevExpress.DataAccess.Json.CustomJsonSource" Json="{&quot;Customers&quot;:[{&quot;Id&quot;:&quot;ALFKI&quot;,&quot;CompanyName&quot;:&quot;Alfreds Futterkiste&quot;,&quot;ContactName&quot;:&quot;Maria Anders&quot;,&quot;ContactTitle&quot;:&quot;Sales Representative&quot;,&quot;Address&quot;:&quot;Obere Str. 57&quot;,&quot;City&quot;:&quot;Berlin&quot;,&quot;PostalCode&quot;:&quot;12209&quot;,&quot;Country&quot;:&quot;Germany&quot;,&quot;Phone&quot;:&quot;030-0074321&quot;,&quot;Fax&quot;:&quot;030-0076545&quot;}],&quot;ResponseStatus&quot;:{}}" />
       <Schema>
