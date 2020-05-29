@@ -59,7 +59,7 @@ namespace WebDashboardDataSources {
             SelectQuery query = SelectQueryFluentBuilder
                 .AddTable("Categories")
                 .Join("Products", "CategoryID")
-                .SelectAllColumns()
+                .SelectAllColumnsFromTable()
                 .Build("Products_Categories");
             sqlDataSource.Queries.Add(query);
             dataSourceStorage.RegisterDataSource("sqlDataSource", sqlDataSource.SaveToXml());
