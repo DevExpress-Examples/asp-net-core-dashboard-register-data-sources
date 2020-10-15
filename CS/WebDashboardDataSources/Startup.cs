@@ -47,7 +47,7 @@ namespace WebDashboardDataSources {
                     configurator.ConfigureDataConnection += Configurator_ConfigureDataConnection;
                 });
 
-            services.AddDevExpressControls(options => options.Resources = ResourcesType.ThirdParty | ResourcesType.DevExtreme);
+            services.AddDevExpressControls();
         }
 
         public DataSourceInMemoryStorage CreateDataSourceStorage() {
