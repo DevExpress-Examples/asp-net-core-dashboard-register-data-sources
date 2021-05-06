@@ -6,18 +6,18 @@ using DevExpress.DataAccess.ConnectionParameters;
 using DevExpress.DataAccess.EntityFramework;
 using DevExpress.DataAccess.Excel;
 using DevExpress.DataAccess.Json;
-using DevExpress.DataAccess.ObjectBinding;
 using DevExpress.DataAccess.Sql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Hosting;
 using System;
 
 namespace WebDashboardDataSources {
     public class Startup {
-        public Startup(IConfiguration configuration, IHostingEnvironment hostingEnvironment) {
+        public Startup(IConfiguration configuration, IWebHostEnvironment hostingEnvironment) {
             Configuration = configuration;
             FileProvider = hostingEnvironment.ContentRootFileProvider;
             DashboardExportSettings.CompatibilityMode = DashboardExportCompatibilityMode.Restricted;
@@ -140,7 +140,7 @@ namespace WebDashboardDataSources {
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
             app.UseDevExpressControls();
             if(env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
@@ -149,11 +149,14 @@ namespace WebDashboardDataSources {
                 app.UseExceptionHandler("/Home/Error");
             }
             app.UseStaticFiles();
-            app.UseMvc(routes => {
-                routes.MapDashboardRoute();
-                routes.MapRoute(
+            app.UseRouting();
+            app.UseEndpoints(endpoints => {
+                // Map dashboard routes.
+                EndpointRouteBuilderExtension.MapDashboardRoute(endpoints, "api/dashboard");
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
