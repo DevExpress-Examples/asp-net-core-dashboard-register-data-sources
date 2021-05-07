@@ -6,18 +6,18 @@ using DevExpress.DataAccess.ConnectionParameters;
 using DevExpress.DataAccess.EntityFramework;
 using DevExpress.DataAccess.Excel;
 using DevExpress.DataAccess.Json;
-using DevExpress.DataAccess.ObjectBinding;
 using DevExpress.DataAccess.Sql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Hosting;
 using System;
 
 namespace WebDashboardDataSources {
     public class Startup {
-        public Startup(IConfiguration configuration, IHostingEnvironment hostingEnvironment) {
+        public Startup(IConfiguration configuration, IWebHostEnvironment hostingEnvironment) {
             Configuration = configuration;
             FileProvider = hostingEnvironment.ContentRootFileProvider;
             DashboardExportSettings.CompatibilityMode = DashboardExportCompatibilityMode.Restricted;
@@ -47,7 +47,7 @@ namespace WebDashboardDataSources {
                     configurator.ConfigureDataConnection += Configurator_ConfigureDataConnection;
                 });
 
-            services.AddDevExpressControls(options => options.Resources = ResourcesType.ThirdParty | ResourcesType.DevExtreme);
+            services.AddDevExpressControls();
         }
 
         public DataSourceInMemoryStorage CreateDataSourceStorage() {
@@ -91,14 +91,12 @@ namespace WebDashboardDataSources {
             DashboardJsonDataSource jsonDataSourceUrl = new DashboardJsonDataSource("JSON Data Source (URL)");
             jsonDataSourceUrl.JsonSource = new UriJsonSource(new Uri("https://raw.githubusercontent.com/DevExpress-Examples/DataSources/master/JSON/customers.json"));
             jsonDataSourceUrl.RootElement = "Customers";
-            jsonDataSourceUrl.Fill();
             dataSourceStorage.RegisterDataSource("jsonDataSourceUrl", jsonDataSourceUrl.SaveToXml());
 
             // Registers a JSON data source from a JSON file.
             DashboardJsonDataSource jsonDataSourceFile = new DashboardJsonDataSource("JSON Data Source (File)");
             jsonDataSourceFile.ConnectionName = "jsonConnection";
             jsonDataSourceFile.RootElement = "Customers";
-            jsonDataSourceFile.Fill();
             dataSourceStorage.RegisterDataSource("jsonDataSourceFile", jsonDataSourceFile.SaveToXml());
 
             // Registers a JSON data source from JSON string.
@@ -106,7 +104,6 @@ namespace WebDashboardDataSources {
             string json = "{\"Customers\":[{\"Id\":\"ALFKI\",\"CompanyName\":\"Alfreds Futterkiste\",\"ContactName\":\"Maria Anders\",\"ContactTitle\":\"Sales Representative\",\"Address\":\"Obere Str. 57\",\"City\":\"Berlin\",\"PostalCode\":\"12209\",\"Country\":\"Germany\",\"Phone\":\"030-0074321\",\"Fax\":\"030-0076545\"}],\"ResponseStatus\":{}}";
             jsonDataSourceString.JsonSource = new CustomJsonSource(json);
             jsonDataSourceString.RootElement = "Customers";
-            jsonDataSourceString.Fill();
             dataSourceStorage.RegisterDataSource("jsonDataSourceString", jsonDataSourceString.SaveToXml());
 
             // Registers an XPO data source.
@@ -143,7 +140,7 @@ namespace WebDashboardDataSources {
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
             app.UseDevExpressControls();
             if(env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
@@ -152,11 +149,14 @@ namespace WebDashboardDataSources {
                 app.UseExceptionHandler("/Home/Error");
             }
             app.UseStaticFiles();
-            app.UseMvc(routes => {
-                routes.MapDashboardRoute();
-                routes.MapRoute(
+            app.UseRouting();
+            app.UseEndpoints(endpoints => {
+                // Map dashboard routes.
+                EndpointRouteBuilderExtension.MapDashboardRoute(endpoints, "api/dashboard");
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
