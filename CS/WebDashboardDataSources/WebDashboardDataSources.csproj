@@ -5,12 +5,8 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.3.0" />
-<<<<<<< HEAD
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="DevExpress.AspNetCore.Dashboard" Version="19.2.12" />
-=======
     <PackageReference Include="DevExpress.AspNetCore.Dashboard" Version="20.1.12" />
->>>>>>> 20.1.7+
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.1" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.111" />
     <PackageReference Include="BuildBundlerMinifier" Version="3.0.415" />
