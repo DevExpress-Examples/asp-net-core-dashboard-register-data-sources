@@ -21,7 +21,9 @@ Supported data sources:
 
 The [DashboardConfigurator.SetDataSourceStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.SetDataSourceStorage.overloads) method is used to register the added data sources in a data source storage. 
 
+## Documentation
 
+- [Register Default Data Sources](https://docs.devexpress.com/Dashboard/116482/web-dashboard/dashboard-backend/register-default-data-sources)
 
 ## See Also
 
