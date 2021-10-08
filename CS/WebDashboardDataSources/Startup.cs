@@ -30,22 +30,25 @@ namespace WebDashboardDataSources {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
             services
-                .AddMvc()
-                .AddDefaultDashboardController((configurator, serviceProvider)  => {
-                    configurator.SetConnectionStringsProvider(new DashboardConnectionStringsProvider(Configuration));
+                .AddMvc();
+            services.AddScoped<DashboardConfigurator>((IServiceProvider serviceProvider) => {
+                DashboardConfigurator configurator = new DashboardConfigurator();
+                configurator.SetConnectionStringsProvider(new DashboardConnectionStringsProvider(Configuration));
 
-                    DashboardFileStorage dashboardFileStorage = new DashboardFileStorage(FileProvider.GetFileInfo("Data/Dashboards").PhysicalPath);
-                    configurator.SetDashboardStorage(dashboardFileStorage);
-                    configurator.SetDataSourceStorage(CreateDataSourceStorage());
+                DashboardFileStorage dashboardFileStorage = new DashboardFileStorage(FileProvider.GetFileInfo("Data/Dashboards").PhysicalPath);
+                configurator.SetDashboardStorage(dashboardFileStorage);
+                configurator.SetDataSourceStorage(CreateDataSourceStorage());
 
-                    configurator.DataLoading += (s, e) => {
-                        if(e.DataSourceName.Contains("Object Data Source")) {
-                            e.Data = Invoices.CreateData();
-                        }
-                    };
+                configurator.DataLoading += (s, e) => {
+                    if (e.DataSourceName.Contains("Object Data Source"))
+                    {
+                        e.Data = Invoices.CreateData();
+                    }
+                };
 
-                    configurator.ConfigureDataConnection += Configurator_ConfigureDataConnection;
-                });
+                configurator.ConfigureDataConnection += Configurator_ConfigureDataConnection;
+                return configurator;
+            });
 
             services.AddDevExpressControls();
         }
@@ -152,7 +155,7 @@ namespace WebDashboardDataSources {
             app.UseRouting();
             app.UseEndpoints(endpoints => {
                 // Map dashboard routes.
-                EndpointRouteBuilderExtension.MapDashboardRoute(endpoints, "api/dashboard");
+                EndpointRouteBuilderExtension.MapDashboardRoute(endpoints, "api/dashboard", "DefaultDashboard");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
