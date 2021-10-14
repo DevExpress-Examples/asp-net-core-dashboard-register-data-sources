@@ -3,15 +3,16 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T828517)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-*Files to look at*:
-
-* [Startup.cs](./CS/WebDashboardDataSources/Startup.cs)
 
 ## Dashboard for ASP.NET Core - How to Register Data Sources
 
 The following example displays how to provide a Web Dashboard with a set of predefined data sources available for end users.
 
 ![](web-dashboard-data-sources.png)
+
+## Files to Look At
+
+* [Startup.cs](./CS/WebDashboardDataSources/Startup.cs)
 
 Supported data sources:
 
