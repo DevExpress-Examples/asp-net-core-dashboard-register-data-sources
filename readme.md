@@ -6,13 +6,13 @@
 
 ## Dashboard for ASP.NET Core - How to Register Data Sources
 
-The following example displays how to provide a Web Dashboard with a set of predefined data sources available for end users.
-
-![](web-dashboard-data-sources.png)
-
 ## Files to Look At
 
 * [Startup.cs](./CS/WebDashboardDataSources/Startup.cs)
+
+The following example displays how to provide a Web Dashboard with a set of predefined data sources available for end users.
+
+![](web-dashboard-data-sources.png)
 
 Supported data sources:
 
