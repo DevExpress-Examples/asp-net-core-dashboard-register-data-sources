@@ -6,26 +6,26 @@
 
 ## Dashboard for ASP.NET Core - How to Register Data Sources
 
-## Files to Look At
 
-* [Startup.cs](./CS/WebDashboardDataSources/Startup.cs)
-
-The following example displays how to provide a Web Dashboard with a set of predefined data sources available for end users.
+The following example displays how to supply a Web Dashboard with a set of predefined data sources available for users.
 
 ![](web-dashboard-data-sources.png)
 
-Supported data sources:
+The [DashboardConfigurator.SetDataSourceStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.SetDataSourceStorage.overloads) method is used to register the added data sources in data source storage. 
 
-- [SQL data source](https://docs.devexpress.com/Dashboard/116652/)
-- [OLAP data source (XMLA only)](https://docs.devexpress.com/Dashboard/400562/)
-- [Excel data source](https://docs.devexpress.com/Dashboard/116654/)
-- [Object data source](https://docs.devexpress.com/Dashboard/116655/)
-- [Entity Framework data source](https://docs.devexpress.com/Dashboard/116656/)
-- [Extract data source](https://docs.devexpress.com/Dashboard/116657/)
-- [JSON data source](https://docs.devexpress.com/Dashboard/401224/)
-- [XPO data source](https://docs.devexpress.com/Dashboard/401226/)
+The [DashboardConfigurator.ConfigureDataConnection](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.ConfigureDataConnection) event is handled to customize connection parameters before the Web Dashboard connects to a data store (database, OLAP cube, etc.).
 
-The [DashboardConfigurator.SetDataSourceStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.SetDataSourceStorage.overloads) method is used to register the added data sources in a data source storage. 
+## Files to Look At
+
+* [EFDataSourceConfigurator.cs](./CS/WebDashboardDataSources/Configuration/EFDataSourceConfigurator.cs)
+* [ExcelDataSourceConfigurator.cs](./CS/WebDashboardDataSources/Configuration/ExcelDataSourceConfigurator.cs)
+* [ExtractDataSourceConfigurator.cs](./CS/WebDashboardDataSources/Configuration/ExtractDataSourceConfigurator.cs)
+* [JsonDataSourceConfigurator.cs](./CS/WebDashboardDataSources/Configuration/JsonDataSourceConfigurator.cs)
+* [ObjectDataSourceConfigurator.cs](./CS/WebDashboardDataSources/Configuration/ObjectDataSourceConfigurator.cs)
+* [OlapDataSourceConfigurator.cs](./CS/WebDashboardDataSources/Configuration/OlapDataSourceConfigurator.cs)
+* [SqlDataSourceConfigurator.cs](./CS/WebDashboardDataSources/Configuration/SqlDataSourceConfigurator.cs)
+* [XpoDataSourceConfigurator.cs](./CS/WebDashboardDataSources/Configuration/XpoDataSourceConfigurator.cs)
+* [Startup.cs](./CS/WebDashboardDataSources/Startup.cs)
 
 ## Documentation
 
