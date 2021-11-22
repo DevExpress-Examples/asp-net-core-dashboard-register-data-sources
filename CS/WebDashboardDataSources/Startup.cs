@@ -28,7 +28,7 @@ namespace WebDashboardDataSources {
             services.AddScoped<DashboardConfigurator>((IServiceProvider serviceProvider) => {
                 DashboardConfigurator configurator = new DashboardConfigurator();
 
-                // Creates and configures dashboard storage.
+                // Create and configure dashboard storage.
                 DashboardFileStorage dashboardFileStorage = new DashboardFileStorage(FileProvider.GetFileInfo("Data/Dashboards").PhysicalPath);
                 configurator.SetDashboardStorage(dashboardFileStorage);
 
