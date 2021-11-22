@@ -46,8 +46,8 @@ namespace WebDashboardDataSources {
 
                 configurator.SetDataSourceStorage(dataSourceStorage);
 
-                // Allow users to create new data sources based on predefined connection strings.
-                configurator.SetConnectionStringsProvider(new DashboardConnectionStringsProvider(Configuration));
+                // Uncomment this string to allow users to create new data sources based on predefined connection strings.
+                // configurator.SetConnectionStringsProvider(new DashboardConnectionStringsProvider(Configuration));
 
                 return configurator;
             });
