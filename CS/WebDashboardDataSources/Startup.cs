@@ -28,11 +28,11 @@ namespace WebDashboardDataSources {
             services.AddScoped<DashboardConfigurator>((IServiceProvider serviceProvider) => {
                 DashboardConfigurator configurator = new DashboardConfigurator();
 
-                // Creates and configures dashboard storage.
+                // Create and configure a dashboard storage.
                 DashboardFileStorage dashboardFileStorage = new DashboardFileStorage(FileProvider.GetFileInfo("Data/Dashboards").PhysicalPath);
                 configurator.SetDashboardStorage(dashboardFileStorage);
 
-                // Create and configure data source storage.
+                // Create and configure a data source storage.
                 DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
                 
                 SqlDataSourceConfigurator.ConfigureDataSource(dataSourceStorage); 
@@ -46,8 +46,8 @@ namespace WebDashboardDataSources {
 
                 configurator.SetDataSourceStorage(dataSourceStorage);
 
-                // Allow users to create new data sources based on predefined connection strings.
-                configurator.SetConnectionStringsProvider(new DashboardConnectionStringsProvider(Configuration));
+                // Uncomment the next line to allow users to create new data sources based on predefined connection strings.
+                // configurator.SetConnectionStringsProvider(new DashboardConnectionStringsProvider(Configuration));
 
                 return configurator;
             });

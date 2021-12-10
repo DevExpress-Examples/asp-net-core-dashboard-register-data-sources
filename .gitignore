@@ -302,3 +302,6 @@ TesterMetadata.xml
 
 # Backup files
 .bak
+
+# package-lock
+package-lock.json
