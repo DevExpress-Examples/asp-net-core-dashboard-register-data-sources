@@ -28,8 +28,7 @@
       </Query>
       <ConnectionOptions CloseConnection="true" />
     </SqlDataSource>
-    <JsonDataSource Name="JSON Data Source (URL)" RootElement="Customers" ComponentName="jsonDataSource1">
-      <Source SourceType="DevExpress.DataAccess.Json.UriJsonSource" Uri="https://raw.githubusercontent.com/DevExpress-Examples/DataSources/master/JSON/customers.json" />
+    <JsonDataSource Name="JSON Data Source (URL)" ConnectionName="jsonUrlConnection" RootElement="Customers" ComponentName="jsonDataSource1">
       <Schema>
         <Node Name="root" Type="System.Object" Selected="true" NodeType="Object">
           <Node Name="Customers" Selected="true" NodeType="Array">
@@ -48,10 +47,9 @@
         </Node>
       </Schema>
     </JsonDataSource>
-    <JsonDataSource Name="JSON Data Source (String)" RootElement="Customers" ComponentName="jsonDataSource2">
-      <Source SourceType="DevExpress.DataAccess.Json.CustomJsonSource" Json="{&quot;Customers&quot;:[{&quot;Id&quot;:&quot;ALFKI&quot;,&quot;CompanyName&quot;:&quot;Alfreds Futterkiste&quot;,&quot;ContactName&quot;:&quot;Maria Anders&quot;,&quot;ContactTitle&quot;:&quot;Sales Representative&quot;,&quot;Address&quot;:&quot;Obere Str. 57&quot;,&quot;City&quot;:&quot;Berlin&quot;,&quot;PostalCode&quot;:&quot;12209&quot;,&quot;Country&quot;:&quot;Germany&quot;,&quot;Phone&quot;:&quot;030-0074321&quot;,&quot;Fax&quot;:&quot;030-0076545&quot;}],&quot;ResponseStatus&quot;:{}}" />
+    <JsonDataSource Name="JSON Data Source (String)" ConnectionName="jsonStringConnection" RootElement="Customers" ComponentName="jsonDataSource2">
     </JsonDataSource>
-    <JsonDataSource Name="JSON Data Source (File)" ConnectionName="jsonConnection" RootElement="Customers" ComponentName="jsonDataSource3" />
+    <JsonDataSource Name="JSON Data Source (File)" ConnectionName="jsonFileConnection" RootElement="Customers" ComponentName="jsonDataSource3" />
     <EFDataSource Name="EF Data Source" Source="WebDashboardDataSources.OrdersContext, WebDashboardDataSources, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" ComponentName="eFDataSource1" />
     <ObjectDataSource Name="Object Data Source" ComponentName="objectDataSource1" DataId="objectDataSource" />
     <OLAPDataSource ComponentName="oLAPDataSource1" Name="OLAP Data Source" ConnectionName="olapConnection" />
