@@ -28,28 +28,6 @@
       </Query>
       <ConnectionOptions CloseConnection="true" />
     </SqlDataSource>
-    <JsonDataSource Name="JSON Data Source (URL)" ConnectionName="jsonUrlConnection" RootElement="Customers" ComponentName="jsonDataSource1">
-      <Schema>
-        <Node Name="root" Type="System.Object" Selected="true" NodeType="Object">
-          <Node Name="Customers" Selected="true" NodeType="Array">
-            <Node Name="Address" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="City" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="CompanyName" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="ContactName" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="ContactTitle" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="Country" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="Fax" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="Id" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="Phone" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="PostalCode" Type="System.String" Selected="true" NodeType="Property" />
-            <Node Name="Region" Type="System.String" Selected="true" NodeType="Property" />
-          </Node>
-        </Node>
-      </Schema>
-    </JsonDataSource>
-    <JsonDataSource Name="JSON Data Source (String)" ConnectionName="jsonStringConnection" RootElement="Customers" ComponentName="jsonDataSource2">
-    </JsonDataSource>
-    <JsonDataSource Name="JSON Data Source (File)" ConnectionName="jsonFileConnection" RootElement="Customers" ComponentName="jsonDataSource3" />
     <EFDataSource Name="EF Data Source" Source="WebDashboardDataSources.OrdersContext, WebDashboardDataSources, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" ComponentName="eFDataSource1" />
     <ObjectDataSource Name="Object Data Source" ComponentName="objectDataSource1" DataId="objectDataSource" />
     <OLAPDataSource ComponentName="oLAPDataSource1" Name="OLAP Data Source" ConnectionName="olapConnection" />
@@ -63,6 +41,11 @@
       <Sorting />
       <Properties />
     </XPObjectSource>
+    <JsonDataSource Name="JSON Data Source (URL)" ConnectionName="jsonUrlConnection" RootElement="Customers" ComponentName="jsonDataSource1" />
+    <JsonDataSource Name="JSON Data Source (File)" ConnectionName="jsonFileConnection" RootElement="Customers" ComponentName="jsonDataSource2" />
+    <JsonDataSource Name="JSON Data Source (String)" RootElement="Customers" ComponentName="jsonDataSource3">
+      <Source SourceType="DevExpress.DataAccess.Json.CustomJsonSource" Json="{&quot;Customers&quot;:[{&quot;Id&quot;:&quot;ALFKI&quot;,&quot;CompanyName&quot;:&quot;Alfreds Futterkiste&quot;,&quot;ContactName&quot;:&quot;Maria Anders&quot;,&quot;ContactTitle&quot;:&quot;Sales Representative&quot;,&quot;Address&quot;:&quot;Obere Str. 57&quot;,&quot;City&quot;:&quot;Berlin&quot;,&quot;PostalCode&quot;:&quot;12209&quot;,&quot;Country&quot;:&quot;Germany&quot;,&quot;Phone&quot;:&quot;030-0074321&quot;,&quot;Fax&quot;:&quot;030-0076545&quot;}],&quot;ResponseStatus&quot;:{}}" />
+    </JsonDataSource>
   </DataSources>
   <Items>
     <TreeView ComponentName="treeViewDashboardItem1" Name="Tree View 1" DataSource="extractFileDataSource1">

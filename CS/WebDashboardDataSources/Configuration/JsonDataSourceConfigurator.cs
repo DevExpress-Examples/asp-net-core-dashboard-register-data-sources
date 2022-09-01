@@ -22,7 +22,10 @@ namespace WebDashboardDataSources.Configuration {
 
             // Registers a JSON data source from JSON string.
             DashboardJsonDataSource jsonDataSourceString = new DashboardJsonDataSource("JSON Data Source (String)");
-            jsonDataSourceString.ConnectionName = "jsonStringConnection";
+            string json = "{\"Customers\":[{\"Id\":\"ALFKI\",\"CompanyName\":\"Alfreds Futterkiste\",\"ContactName\":\"Maria Anders\"," +
+                "\"ContactTitle\":\"Sales Representative\",\"Address\":\"Obere Str. 57\",\"City\":\"Berlin\"," +
+                "\"PostalCode\":\"12209\",\"Country\":\"Germany\",\"Phone\":\"030-0074321\",\"Fax\":\"030-0076545\"}],\"ResponseStatus\":{}}";
+            jsonDataSourceString.JsonSource = new CustomJsonSource(json);
             jsonDataSourceString.RootElement = "Customers";
             storage.RegisterDataSource("jsonDataSourceString", jsonDataSourceString.SaveToXml());
 
@@ -36,17 +39,6 @@ namespace WebDashboardDataSources.Configuration {
                 Uri fileUri = new Uri(fileProvider.GetFileInfo("Data/customers.json").PhysicalPath, UriKind.RelativeOrAbsolute);
                 JsonSourceConnectionParameters jsonParams = new JsonSourceConnectionParameters();
                 jsonParams.JsonSource = new UriJsonSource(fileUri);
-                e.ConnectionParameters = jsonParams;
-            }
-            if (e.ConnectionName == "jsonUrlConnection") {
-                JsonSourceConnectionParameters jsonParams = new JsonSourceConnectionParameters();
-                jsonParams.JsonSource = new UriJsonSource(new Uri("https://raw.githubusercontent.com/DevExpress-Examples/DataSources/master/JSON/support.json"));
-                e.ConnectionParameters = jsonParams;
-            }
-            if (e.ConnectionName == "jsonStringConnection") {
-                string json = "{\"Customers\":[{\"Id\":\"ALFKI\",\"CompanyName\":\"Alfreds Futterkiste\",\"ContactName\":\"Maria Anders\",\"ContactTitle\":\"Sales Representative\",\"Address\":\"Obere Str. 57\",\"City\":\"Berlin\",\"PostalCode\":\"12209\",\"Country\":\"Germany\",\"Phone\":\"030-0074321\",\"Fax\":\"030-0076545\"}],\"ResponseStatus\":{}}";
-                JsonSourceConnectionParameters jsonParams = new JsonSourceConnectionParameters();
-                jsonParams.JsonSource = new CustomJsonSource(json);
                 e.ConnectionParameters = jsonParams;
             }
         }
