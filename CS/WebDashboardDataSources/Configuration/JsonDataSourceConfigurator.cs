@@ -20,7 +20,7 @@ namespace WebDashboardDataSources.Configuration {
             jsonDataSourceFile.RootElement = "Customers";
             storage.RegisterDataSource("jsonDataSourceFile", jsonDataSourceFile.SaveToXml());
 
-            // Registers a JSON data source from JSON string.
+            // Registers a JSON data source from a JSON string.
             DashboardJsonDataSource jsonDataSourceString = new DashboardJsonDataSource("JSON Data Source (String)");
             string json = "{\"Customers\":[{\"Id\":\"ALFKI\",\"CompanyName\":\"Alfreds Futterkiste\",\"ContactName\":\"Maria Anders\"," +
                 "\"ContactTitle\":\"Sales Representative\",\"Address\":\"Obere Str. 57\",\"City\":\"Berlin\"," +
