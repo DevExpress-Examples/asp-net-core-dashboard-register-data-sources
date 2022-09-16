@@ -8,7 +8,7 @@ namespace WebDashboardDataSources.Configuration {
     public class JsonDataSourceConfigurator {
         private static IFileProvider fileProvider;
         public static void ConfigureDataSource(DashboardConfigurator configurator, DataSourceInMemoryStorage storage, IFileProvider fileProvider) {
-            // Registers a JSON data source from URL.
+            // Registers a JSON data source from a URL.
             DashboardJsonDataSource jsonDataSourceUrl = new DashboardJsonDataSource("JSON Data Source (URL)");
             jsonDataSourceUrl.ConnectionName = "jsonUrlConnection";
             jsonDataSourceUrl.RootElement = "Customers";
