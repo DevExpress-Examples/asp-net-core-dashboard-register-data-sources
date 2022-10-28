@@ -15,7 +15,7 @@ The [DashboardConfigurator.SetDataSourceStorage](https://docs.devexpress.com/Das
 
 The [DashboardConfigurator.ConfigureDataConnection](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.ConfigureDataConnection) event is handled to customize connection parameters before the Web Dashboard connects to a data store (database, OLAP cube, etc.).
 
-## Files to Look At
+## Files to Review
 
 * [EFDataSourceConfigurator.cs](./CS/WebDashboardDataSources/Configuration/EFDataSourceConfigurator.cs)
 * [ExcelDataSourceConfigurator.cs](./CS/WebDashboardDataSources/Configuration/ExcelDataSourceConfigurator.cs)
