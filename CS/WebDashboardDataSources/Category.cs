@@ -1,4 +1,4 @@
-﻿using DevExpress.Xpo;
+using DevExpress.Xpo;
 
 namespace WebDashboardDataSources {
     [Persistent("Categories"), DeferredDeletion(false)]
