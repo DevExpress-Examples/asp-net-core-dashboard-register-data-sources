@@ -3,9 +3,9 @@
   "name": "asp.net",
   "private": true,
   "devDependencies": {
-    "devextreme": "21.2-stable",
-    "@devexpress/analytics-core": "21.2-stable",
-    "devexpress-dashboard": "21.2-stable",
+    "devextreme": "21.2.6",
+    "@devexpress/analytics-core": "21.2.6",
+    "devexpress-dashboard": "21.2.6",
     "jquery-ui-dist": "^1.13.0"
   }
 }
