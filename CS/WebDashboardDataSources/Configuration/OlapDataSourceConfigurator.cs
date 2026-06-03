@@ -16,7 +16,7 @@ namespace WebDashboardDataSources.Configuration {
         private static void Configurator_ConfigureDataConnection(object sender, ConfigureDataConnectionWebEventArgs e) {
             if (e.ConnectionName == "olapConnection") {
                 OlapConnectionParameters olapParams = new OlapConnectionParameters();
-                olapParams.ConnectionString = "Provider=MSOLAP;Data Source=http://demos.devexpress.com/Services/OLAP/msmdpump.dll;"
+                olapParams.ConnectionString = "Provider=MSOLAP;Data Source=https://demos.devexpress.com/Services/OLAP/msmdpump.dll;"
                     + "Initial catalog=Adventure Works DW Standard Edition;Cube name=Adventure Works;Query Timeout=100;";
                 e.ConnectionParameters = olapParams;
             }
